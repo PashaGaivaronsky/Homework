@@ -1,0 +1,7 @@
+num_1 = int(input("Введите целое число"))
+num_2 = int(input('Введите целое число'))
+text = str(input("Введите строку"))
+num_3 = float(input("Введите дробное число"))
+print(text)
+print(num_1, num_2)
+print(num_3)
