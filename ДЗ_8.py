@@ -20,6 +20,7 @@ def mass(m):
     return res
 mass(random.randint(1,10)for a in range(10))
 
+
 print("Домашнее задание")
 def calculator(num_1,oper,num_2):
     if oper == "+":
