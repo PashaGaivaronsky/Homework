@@ -3,7 +3,7 @@ class Tomato:
     states = {1: "Только посажен", 2: "Спеет", 3: "Созрел"}
     def __init__(self, index):
         self._index = index
-        self._state = self.states[1]
+        self._state = 0
 
     def grow(self):
         if self._state == self.states[1]:
@@ -13,14 +13,13 @@ class Tomato:
         return self._state
 
     def is_ripe(self):
-        return "Томат созрел" if self._state == self.states[3] else "Томат не созрел"
+        return "Томат созрел" if self._state == 2 else "Томат не созрел"
 
 
 class TomatoBush:
 
     def __init__(self, count):
-        self.tomato_grow = None
-        self.tomatoes = [Tomato(1) for i in range(count)]
+        self.tomatoes = [Tomato(i) for i in range(count)]
 
     def grow_all(self):
         for i in self.tomatoes:
@@ -28,11 +27,13 @@ class TomatoBush:
 
     def all_is_ripe(self):
         for i in self.tomatoes:
-            return i.is_ripe()
+            if i.is_ripe():
+                return True
+            return False
 
     def give_away_all(self):
-        if tomato.is_ripe() == "Томат созрел":
-            self.tomatoes.clear()
+        if tomato.is_ripe():
+            self.tomatoes = []
 
 class Gardener:
 
